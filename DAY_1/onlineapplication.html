@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Application Form</title>
+</head>
+<body>
+    
+    <table border="1">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name" placeholder="Enter your name" required></td>
+        </tr>
+
+        <tr>
+            <td>Phone Number</td>
+            <td><input type="tel" name="phone" placeholder="Enter your phone number" pattern="[0-9]{10}" required></td>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td><input type="email" name="email" placeholder="Enter your email" required></td>
+        </tr>
+
+        <tr>
+            <td>Address</td>
+            <td><input type="text" name="address" placeholder="Enter your address" required></td>
+        </tr>
+
+        <tr>
+            <td>Gender</td>
+            <td>
+                <input type="radio" name="gender" value="male" required> Male
+                <input type="radio" name="gender" value="female" required> Female
+                <input type="radio" name="gender" value="other" required> Other
+            </td>
+        </tr>
+
+        <tr>
+            <td>Course</td>
+            <td>
+                <select name="course" required>
+                    <option value="btech">B.Tech</option>
+                    <option value="mca">MCA</option>
+                    <option value="mba">MBA</option>
+                    <option value="diploma">Diploma</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Submit"></td>
+        </tr>
+    </table>
+</body>
+</html>
