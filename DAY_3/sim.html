@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function demo(){
+        let num1 = parseFloat(document.getElementById("t1").value);
+        let num2 = parseFloat(document.getElementById("t2").value);
+        let result = num1 + num2;
+        document.getElementById("t3").value = result;
+    }
+</script>
+<body>
+    <input type="text" placeholder="Enter FirsT NUMBER" id="t1">
+    <input type="text" placeholder="Enter SECOND NUMBER" id="t2">
+    <input type="text" placeholder="RESULT" id="t3">
+    <button onclick="demo()">Click Me</button>
+</body>
+</html>

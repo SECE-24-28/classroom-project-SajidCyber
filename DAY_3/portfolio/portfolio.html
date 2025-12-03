@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sajid Portfolio</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            scroll-behavior: smooth;
+        }
+
+        body{
+            font-family: Arial, sans-serif;
+            color:white;
+        }
+
+        /* NAVBAR */
+        nav{
+            width:100%;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            padding:20px;
+            position: fixed;
+            top:0;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+        }
+        nav h1{
+            font-size: 1.6rem;
+        }
+        nav ol{
+            list-style: none;
+            display:flex;
+        }
+        nav li{
+            margin-left:25px;
+            font-size:1.2rem;
+            cursor:pointer;
+        }
+        nav li:hover{
+            color:cyan;
+        }
+
+        /* VIDEO BACKGROUND */
+        main video{
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            object-fit: cover;
+            z-index:-1;
+        }
+
+        /* HERO SECTION */
+        #home{
+            height:100vh;
+            display:flex;
+            align-items: center;
+            padding-left:40px;
+        }
+        #home h3{
+            font-size:1.3rem;
+            color:cyan;
+        }
+        #home h1{
+            font-size:2.4rem;
+            width:600px;
+            margin-top:10px;
+        }
+        #home p{
+            width:500px;
+            margin-top:20px;
+            font-size:1.1rem;
+        }
+        button{
+            padding:10px 25px;
+            margin-top: 30px;
+            background-color: rgb(0, 182, 182);
+            border:none;
+            color:white;
+            font-size:1rem;
+            cursor:pointer;
+            transition:0.3s;
+        }
+        button:hover{
+            letter-spacing:3px;
+            background-color: rgb(0, 226, 226);
+        }
+
+        /* ABOUT SECTION */
+        #about{
+            height:100vh;
+            padding:150px 50px;
+            background: rgba(0,0,0,0.5);
+        }
+        #about h2{
+            font-size:2.3rem;
+            margin-bottom:20px;
+            color:cyan;
+        }
+        #about p{
+            width:700px;
+            font-size:1.2rem;
+            line-height:1.6rem;
+        }
+
+        /* GALLERY SECTION */
+        #gallery{
+            height:100vh;
+            background: rgba(0,0,0,0.6);
+            padding:150px 50px;
+        }
+        #gallery h2{
+            color:cyan;
+            font-size:2.3rem;
+            margin-bottom:30px;
+        }
+        .gallery-box{
+            display:flex;
+            gap:20px;
+            flex-wrap: wrap;
+        }
+        .gallery-box img{
+            width:250px;
+            height:150px;
+            border-radius:10px;
+            transition:0.3s;
+        }
+        .gallery-box img:hover{
+            transform: scale(1.05);
+        }
+
+        /* CONTACT SECTION */
+        #contact{
+            height:100vh;
+            padding:150px 50px;
+            background: rgba(0,0,0,0.7);
+        }
+        #contact h2{
+            color:cyan;
+            font-size:2.3rem;
+            margin-bottom:20px;
+        }
+        #contact p{
+            font-size:1.2rem;
+        }
+
+        /* FOOTER ICONS */
+        footer{
+            position: fixed;
+            bottom:10px;
+            left:20px;
+        }
+        footer ol{
+            display:flex;
+            list-style:none;
+        }
+        footer img{
+            width:35px;
+            height:35px;
+            margin-right:10px;
+            border-radius:5px;
+            transition:0.3s;
+        }
+        footer img:hover{
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <h1>Sajid Portfolio</h1>
+        <ol>
+            <li><a href="#home" style="text-decoration:none;color:white;">HOME</a></li>
+            <li><a href="#about" style="text-decoration:none;color:white;">ABOUT</a></li>
+            <li><a href="#gallery" style="text-decoration:none;color:white;">GALLERY</a></li>
+            <li><a href="#contact" style="text-decoration:none;color:white;">CONTACT</a></li>
+        </ol>
+    </nav>
+
+    <!-- BACKGROUND VIDEO -->
+    <main>
+        <video src="video1tech.mp4" autoplay muted loop></video>
+    </main>
+
+    <!-- HOME SECTION -->
+    <section id="home">
+        <div>
+            <h3>WELCOME TO MY PORTFOLIO</h3>
+            <h1>I'm Sajid — A Web Developer Exploring the Tech World</h1>
+            <p>I create beautiful and responsive websites using HTML, CSS, JavaScript, and the MERN stack.</p>
+            <button>Hire Me</button>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Hi, I am Sajid — a passionate front-end developer currently learning MERN stack.
+            I love creating clean, modern, and user-friendly websites.
+            My goal is to become a full-stack developer and build real-world applications.
+        </p>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery">
+        <h2>My Works</h2>
+        <div class="gallery-box">
+            <img src="image1.jpg" alt="">
+            <img src="image2.jpg" alt="">
+            <img src="image3.jpg" alt="">
+            <img src="image4.jpg" alt="">
+        </div>
+    </section>
+
+   
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: sajid@example.com</p>
+        <p>Phone: +91 12345 67890</p>
+    </section>
+
+    <!-- SOCIAL ICONS -->
+    <footer>
+        <ol>
+            <li><img src="image1Ln.jpg" alt=""></li>
+            <li><img src="image2.TT.jpg" alt=""></li>
+            <li><img src="image3.message.jpg" alt=""></li>
+        </ol>
+    </footer>
+
+</body>
+</html>
