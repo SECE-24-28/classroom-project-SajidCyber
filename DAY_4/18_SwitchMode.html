@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwitchinG mode</title>
+</head>
+<body id="bd">
+   <H1> <button onclick="toggle()">Switch Mode</button> </H1>
+    <script>
+       let dark=false;
+
+        function toggle(){
+            let b=document.getElementById("bd");
+
+            if(dark==false){
+                b.style.background="black";
+                b.style.color="white";
+                dark=true;
+            }
+            else{
+                b.style.background="white";
+                b.style.color="black";
+                dark=false;
+            }
+        }
+    </script>
+</body>
+</html>
