@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Simple To‑Do List</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#f3f4f6}
+    .todo-app{width:100%;max-width:480px;background:#fff;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,0.08);padding:20px}
+    h1{margin:0 0 12px;font-size:20px;text-align:center}
+    .input-row{display:flex;gap:8px;margin-bottom:12px}
+    .input-row input{flex:1;padding:10px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:14px}
+    .input-row button{padding:10px 14px;border:0;background:#2563eb;color:#fff;border-radius:8px;cursor:pointer}
+    .input-row button:active{transform:translateY(1px)}
+    ul{list-style:none;padding:0;margin:0;max-height:300px;overflow:auto}
+    li{display:flex;align-items:center;justify-content:space-between;padding:10px;border-radius:8px;margin-bottom:8px;border:1px solid #eef2ff}
+    .task-text{flex:1;margin-right:12px;word-break:break-word}
+    .actions button{border:0;background:#ef4444;color:#fff;padding:6px 9px;border-radius:6px;cursor:pointer}
+    .empty{color:#6b7280;text-align:center;padding:18px}
+    footer{margin-top:12px;text-align:center;color:#6b7280;font-size:13px}
+  </style>
+</head>
+<body>
+  <main class="todo-app" role="application" aria-labelledby="title">
+    <h1 id="title">Simple To‑Do List</h1>
+
+    <div class="input-row">
+      <input id="taskInput" type="text" placeholder="Add a new task" aria-label="New task" />
+      <button id="addBtn">Add</button>
+    </div>
+
+    <ul id="taskList" aria-live="polite"></ul>
+
+    <div id="empty" class="empty" hidden>You have no tasks — add one above.</div>
+
+    <footer>Tip: press Enter to add a task</footer>
+  </main>
+
+  <script>
+    (function(){
+      const input = document.getElementById('taskInput');
+      const addBtn = document.getElementById('addBtn');
+      const list = document.getElementById('taskList');
+      const empty = document.getElementById('empty');
+      const STORAGE_KEY = 'simple_todo_tasks_v1';
+
+      // load saved tasks
+      let tasks = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+
+      function render(){
+        list.innerHTML = '';
+        if(tasks.length === 0){
+          empty.hidden = false;
+          return;
+        }
+        empty.hidden = true;
+        tasks.forEach((t, idx) => {
+          const li = document.createElement('li');
+
+          const span = document.createElement('div');
+          span.className = 'task-text';
+          span.textContent = t.text;
+
+          const actions = document.createElement('div');
+          actions.className = 'actions';
+
+          const del = document.createElement('button');
+          del.type = 'button';
+          del.textContent = 'Delete';
+          del.setAttribute('aria-label', 'Delete task');
+          del.addEventListener('click', () => {
+            deleteTask(idx);
+          });
+
+          actions.appendChild(del);
+          li.appendChild(span);
+          li.appendChild(actions);
+          list.appendChild(li);
+        });
+      }
+
+      function save(){
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+      }
+
+      function addTask(text){
+        const trimmed = text.trim();
+        if(trimmed === '') return;
+        tasks.push({text: trimmed});
+        save();
+        render();
+      }
+
+      function deleteTask(index){
+        tasks.splice(index,1);
+        save();
+        render();
+      }
+
+      addBtn.addEventListener('click', () => {
+        addTask(input.value);
+        input.value = '';
+        input.focus();
+      });
+
+      input.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter'){
+          addTask(input.value);
+          input.value = '';
+        }
+      });
+
+      // initial render
+      render();
+    })();
+  </script>
+</body>
+</html>
