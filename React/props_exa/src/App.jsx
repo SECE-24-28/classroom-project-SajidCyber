@@ -2,7 +2,8 @@ import { useState } from "react";
 import Header from "./Header";
 import Body from "./Body";
 import Footer from "./Footer";
-import "./App.css";
+import AddStudent from "./AddStudent";
+import Search from "./Search";
 
 function App() {
 
@@ -18,6 +19,17 @@ function App() {
     { id: 9, sname: "kaha", fee: true },
   ]);
 
+  const [search, setSearch] = useState("");
+
+  const handleAdd = (name) => {
+    const newStudent = {
+      id: list.length + 1,
+      sname: name,
+      fee: false
+    };
+    setList([...list, newStudent]);
+  };
+
   const handleDelete = (id) => {
     const newList = list.filter((ls) => ls.id !== id);
     setList(newList);
@@ -30,20 +42,27 @@ function App() {
     setList(newList);
   };
 
+  const filteredList = list.filter((ls) =>
+    ls.sname.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <>
       <Header title="Students List" dep="CSE" year={2025} />
 
-      <Body 
-        list={list}
+      <Search search={search} setSearch={setSearch} />
+
+      <AddStudent onAdd={handleAdd} />
+
+      <Body
+        list={filteredList}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
       />
 
-      <Footer count={list.length} />
+      <Footer count={filteredList.length} />
     </>
   );
 }
 
 export default App;
-  
