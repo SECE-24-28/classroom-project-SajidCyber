@@ -23,7 +23,6 @@
         let readBtn = document.getElementById("rd");
         let output = document.getElementById("output");
 
-        // Load existing contacts or create empty array
         let contactList = JSON.parse(localStorage.getItem("contacts")) || [];
 
         saveBtn.addEventListener("click", () => {

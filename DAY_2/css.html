@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+
+  <div class="bg-white shadow-xl w-full max-w-md rounded-xl p-8">
+    
+    <h1 class="text-3xl font-bold text-center mb-2 text-gray-800">
+      Welcome Back
+    </h1>
+    <p class="text-center text-gray-500 mb-6">
+      Please login to continue
+    </p>
+
+    <form>
+
+      <label class="block mb-2 text-gray-700 font-medium">Email</label>
+      <input 
+        type="email"
+        class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+        placeholder="you@example.com"
+        required
+      />
+
+      <label class="block mt-4 mb-2 text-gray-700 font-medium">Password</label>
+      <input 
+        type="password"
+        class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 outline-none"
+        placeholder="Enter password"
+        required
+      />
+
+      <div class="flex justify-between items-center mt-3">
+        <label class="flex items-center space-x-2 text-gray-600">
+          <input type="checkbox" class="w-4 h-4" />
+          <span>Remember me</span>
+        </label>
+
+        <a href="#" class="text-blue-600 hover:underline">
+          Forgot?
+        </a>
+      </div>
+
+      <button 
+        type="submit"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-semibold mt-6 transition">
+        Login
+      </button>
+
+      <p class="text-center text-gray-500 mt-4">
+        New here?
+        <a href="#" class="text-blue-600 hover:underline">Create Account</a>
+      </p>
+
+    </form>
+
+  </div>
+
+</body>
+</html>

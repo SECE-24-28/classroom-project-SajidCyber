@@ -5,4 +5,4 @@ setTimeout(()=>{
     setTimeout(()=>{
         console.log("Process 3")
     },3000)
-},2000);  //here we contro; asyncronixation 
+},2000);  //here we control asyncronixation 
