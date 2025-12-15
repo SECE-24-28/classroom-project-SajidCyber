@@ -5,3 +5,6 @@ const courseSchema=new mongoose.Schema({ //defining table structure
     duration:{type:String,required:true}
 });  
 module.exports=mongoose.model("mycourse",courseSchema)
+
+
+
