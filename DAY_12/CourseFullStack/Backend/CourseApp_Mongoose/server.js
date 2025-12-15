@@ -31,7 +31,7 @@ app.get("/api/courses", async (req, res) => {
 });
 
 // GET course by ID
-app.get("/api/course/:id", async (req, res) => {
+app.get("/api/courses/:id", async (req, res) => {
     try {
         const course = await MyCourse.findById(req.params.id);
         if (!course) {
@@ -44,7 +44,7 @@ app.get("/api/course/:id", async (req, res) => {
 });
 
 // POST create course
-app.post("/api/course", async (req, res) => {
+app.post("/api/courses", async (req, res) => {
     try {
         const { title, duration } = req.body;
         const course = new MyCourse({ title, duration });
@@ -56,7 +56,7 @@ app.post("/api/course", async (req, res) => {
 });
 
 // PUT update course
-app.put("/api/course/:id", async (req, res) => {
+app.put("/api/courses/:id", async (req, res) => {
     try {
         const { title, duration } = req.body;
         const updatedCourse = await MyCourse.findByIdAndUpdate(
@@ -75,7 +75,7 @@ app.put("/api/course/:id", async (req, res) => {
 });
 
 // DELETE course
-app.delete("/api/course/:id", async (req, res) => {
+app.delete("/api/courses/:id", async (req, res) => {
     try {
         const course = await MyCourse.findByIdAndDelete(req.params.id);
         if (!course) {
